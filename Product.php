@@ -1,4 +1,5 @@
 <?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <meta charset="utf-8">
@@ -86,9 +87,7 @@
   </thead>
   <tbody>
 <?php 
-$_SESSION ['Item'] = "";
-$_SESSION ['Price'] = "";
-$_SESSION ['description'] = "";
+
 
 if(isset($_POST['button'])) { 
 $_SESSION ['Item'] .= $_POST['Item']."<br>";
@@ -100,10 +99,10 @@ $arr2 = explode("<br>",$_SESSION ['Price']) ;
 $arr3 = explode("<br>",$_SESSION ['description']) ;
 
 for($i=0; $i<count($arr1)-1;$i++) {
-    echo " <tr scope='col'> <td>".$_SESSION ['Item'] 
-    ."</td> <td> ".$_SESSION ['Price']."</td> <td>". 
+    echo " <tr scope='col'> <td>".$arr1[$i]
+    ."</td> <td> ".$arr2[$i]."</td> <td>". 
     '<img src="product1.png" width="150px" height="150px">' ."</td> <td> ".
-    $_SESSION ['description'] ."</td> </tr> ";
+    $arr3[$i] ."</td> </tr> ";
   }
 }
 ?>
